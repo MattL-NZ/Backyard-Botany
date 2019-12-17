@@ -1,5 +1,6 @@
 import 'package:backyard_botany/core/view_models/login_view_model.dart';
 import 'package:backyard_botany/ui/shared/app_colors.dart' as prefix0;
+import 'package:backyard_botany/ui/shared/spacers.dart';
 import 'package:backyard_botany/ui/views/base_view.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
@@ -11,106 +12,173 @@ class LoginView extends StatelessWidget{
     return BaseView<LoginViewModel>(
       builder: (context, model, child) => Scaffold(
         backgroundColor: Colors.white,
-          body: Padding(
-            padding: const EdgeInsets.only(top: 50.0),
+          body: SafeArea(
             child: Container(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  Spacers.verticalSpace(20),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                      child: Image(
-                        image: AssetImage('assets/images/illustration_1.png'),
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Text(
+                      'Hello',
+                      style: TextStyle(
+                        fontSize: 40.0,
+                        color: prefix0.textTitleColor,
+                        fontFamily: "SF-Pro-Bold"
                       ),
                     ),
                   ),
+                  Spacers.verticalSpace(10),
                   Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: Center(
-                      child: GradientText(
-                        'Backyard Botany',
-                        style: TextStyle(
-                          fontSize: 40.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        gradient: LinearGradient(
-                          colors: <Color>[
-                            Color(0xFF01AA94),
-                            Color(0xFF2CB47A),
-                          ],
-                        ),
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Text(
+                      "Let's learn more about plants...",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: prefix0.textMainColor,
+                        fontFamily: "SF-Pro-Regular"
                       ),
                     ),
-                  ),
+                  ),                  
+                  Spacers.verticalSpace(40),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 24.0),
-                    child: TextFormField(
-                      autofocus: false,
-                      initialValue: 'matthewlist@outlook.com', 
-                      textAlign: TextAlign.center,
-                      style: new TextStyle(fontWeight: FontWeight.normal, color: prefix0.gradientColor1),
-                      decoration: InputDecoration(
-                        hintText: 'Email', 
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF01AA94), width: 1.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF01AA94), width: 1.0),
-                        ),
+                    child: TextField(
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: 'SP-Pro-Medium',
+                        color: prefix0.textTitleColor
                       ),
-                    ),
+                      decoration: InputDecoration(
+                        alignLabelWithHint: true,
+                        labelText: 'Username',
+                        labelStyle: TextStyle(
+                           color: prefix0.textFieldColor
+                        ),
+                        enabledBorder: UnderlineInputBorder(      
+                          borderSide: BorderSide(color: prefix0.lineColor),   
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: prefix0.accentColor),
+                        ),
+                        contentPadding: EdgeInsets.only(bottom: 15.0)  
+                      ),
+                    )
                   ),
+                  Spacers.verticalSpaceSmall(),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
-                    child: TextFormField(
-                      autofocus: false,
-                      initialValue: '*********',
-                      textAlign: TextAlign.center,
-                      style: new TextStyle(fontWeight: FontWeight.normal, color: prefix0.gradientColor1),
-                      decoration: InputDecoration(
-                        hintText: 'Password', 
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF01AA94), width: 1.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF01AA94), width: 1.0),
-                        ),
+                    padding: EdgeInsets.symmetric(horizontal: 24.0),
+                    child: TextField(
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: 'SP-Pro-Medium',
+                        color: prefix0.textTitleColor
                       ),
+                      decoration: InputDecoration(
+                        alignLabelWithHint: true,
+                        labelText: 'Password',
+                        labelStyle: TextStyle(
+                           color: prefix0.textFieldColor
+                        ),
+                        enabledBorder: UnderlineInputBorder(      
+                          borderSide: BorderSide(color: prefix0.lineColor,),   
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: prefix0.accentColor),
+                        ),  
+                      ),
+                      obscureText: true,
                     ),
                   ),
+                  Spacers.verticalSpaceMedium(),
                   Padding(
-                    padding: const EdgeInsets.all(24.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[ 
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              "Remember me",
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: prefix0.textFieldColor,
+                                fontFamily: 'SF-Pro-Medium'
+                              ),
+                            ),
+                            Checkbox(
+                              value: false,
+                              //onChanged: null,
+                            ),  
+                          ],
+                        ),
+                        Text(
+                          "Forgot Password?",
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            color: prefix0.textFieldColor,
+                            fontFamily: 'SF-Pro-Medium'
+                          ),
+                        ),
+                      ],
+                    )
+                  ),
+                  Spacers.verticalSpaceMedium(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: RaisedButton(
                         onPressed: () {},
                         textColor: Colors.white,
                         padding: const EdgeInsets.all(0.0),
-                        //shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          height: 40.0,
-                          decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: <Color>[
-                                Color(0xFF01AA94),
-                                Color(0xFF94C73B),
-                              ],
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(00.0))
-                          ),
+                          height: 50.0,
+                          color: prefix0.accentColor,
                           child: Center(
                             child: Text(
-                                'Login',
-                                style: TextStyle(fontSize: 28)
+                                'LOGIN',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: "SF-Pro-Bold"
+                                )
                             ),
                           ),
                         ),
                       ),
                     ),
+                  ),
+                  Spacers.verticalSpaceSmall(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Center(
+                          child: Text(
+                            "Don't have an account?",
+                            style: TextStyle(
+                              fontSize: 14.00,
+                              color: prefix0.textFieldColor,
+                              fontFamily: 'SF-Pro-Regular'
+                            ),
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            " Sign Up",
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: prefix0.accentColor,
+                              fontFamily: 'SF-Pro-Bold'
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ),
                 ],
               ),
