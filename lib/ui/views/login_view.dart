@@ -3,7 +3,6 @@ import 'package:backyard_botany/ui/shared/app_colors.dart' as prefix0;
 import 'package:backyard_botany/ui/shared/spacers.dart';
 import 'package:backyard_botany/ui/views/base_view.dart';
 import 'package:flutter/material.dart';
-import 'package:gradient_text/gradient_text.dart';
 
 class LoginView extends StatelessWidget{
 
