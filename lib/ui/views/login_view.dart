@@ -130,7 +130,9 @@ class LoginView extends StatelessWidget{
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                        },
                         textColor: Colors.white,
                         padding: const EdgeInsets.all(0.0),
                         child: Container(
@@ -139,11 +141,11 @@ class LoginView extends StatelessWidget{
                           color: prefix0.accentColor,
                           child: Center(
                             child: Text(
-                                'LOGIN',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: "SF-Pro-Bold"
-                                )
+                              'LOGIN',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: "SF-Pro-Bold"
+                              )
                             ),
                           ),
                         ),
