@@ -131,7 +131,7 @@ class LoginView extends StatelessWidget{
                       alignment: Alignment.bottomCenter,
                       child: RaisedButton(
                         onPressed: () {
-
+                          Navigator.pushNamed(context, 'home');
                         },
                         textColor: Colors.white,
                         padding: const EdgeInsets.all(0.0),

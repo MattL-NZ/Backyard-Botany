@@ -1,42 +1,87 @@
 import 'package:backyard_botany/core/utils/bottom_nav.dart';
-import 'package:backyard_botany/core/view_models/home_view_model.dart';
-import 'package:backyard_botany/ui/views/base_view.dart';
+import 'package:backyard_botany/ui/shared/app_colors.dart';
 import 'package:backyard_botany/ui/views/discover_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeView extends StatelessWidget {
- @override
-  Widget build(BuildContext context) {
+class HomeView extends StatefulWidget {
+  @override
+  _HomeViewState createState() =>_HomeViewState();
+}
 
+class _HomeViewState extends State<HomeView> {
+  var currentTab = [
+    Home(),
+    Discover(),
+    Setting(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
     var provider = Provider.of<BottomNavBarProvider>(context);
-    return BaseView<HomeViewModel>(
-      builder: (context, model, child) => Scaffold(
-        backgroundColor: Colors.green,
-          body: Container(
-            child: Center(
-              child: Text(
-                'HOME'
-              ),
-            ),
+    return Scaffold(
+      body: currentTab[provider.currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: provider.currentIndex,
+        onTap: (index) {
+          provider.currentIndex = index;
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, size: 30),
+            title: Text(''),
+            activeIcon: Icon(Icons.home, color: accentColor, size: 30)
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: provider.currentIndex,
-            onTap: (index) {
-              provider.currentIndex = index;
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                title: Text("Home")
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.new_releases),
-                title: Text("Discover")
-              )
-            ]
+          BottomNavigationBarItem(
+            icon: Icon(Icons.image, size: 30),
+            title: Text(''),
+            activeIcon: Icon(Icons.image, size: 30, color: accentColor,),
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person, size: 30,),
+            title: Text(''),
+            activeIcon: Icon(Icons.person, size: 30, color: accentColor,),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Container(
+        alignment: Alignment.center,
+        height: 300,
+        width: 300,
+        child: Text(
+          "Home",
+          style: TextStyle(color: Colors.white, fontSize: 30),
+        ),
+        color: Colors.amber,
+      )),
+    );
+  }
+}
+
+class Setting extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Container(
+        alignment: Alignment.center,
+        height: 300,
+        width: 300,
+        child: Text(
+          "Settings",
+          style: TextStyle(color: Colors.white, fontSize: 30),
+        ),
+        color: Colors.cyan,
+      )),
     );
   }
 }
