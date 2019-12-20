@@ -23,6 +23,7 @@ dependencies:
   provider: ^3.2.0
   get_it: ^3.0.3
   fancy_bottom_navigation: ^0.3.2
+  page_transition: ^1.1.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -47,6 +48,7 @@ flutter:
     - assets/images/illustration_1.png
     - assets/images/plant_icon.png
     - assets/images/plant_icon_main.png
+    - assets/images/article_one.png
 
   fonts:
     - family: SF-Pro-Bold
