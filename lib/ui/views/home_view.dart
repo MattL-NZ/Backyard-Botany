@@ -3,6 +3,7 @@ import 'package:backyard_botany/ui/shared/app_colors.dart';
 import 'package:backyard_botany/ui/shared/spacers.dart';
 import 'package:backyard_botany/ui/views/discover_view.dart';
 import 'package:backyard_botany/ui/views/settings_view.dart';
+import 'package:backyard_botany/ui/widgets/articles.dart';
 import 'package:backyard_botany/ui/widgets/home_buttons.dart';
 import 'package:backyard_botany/ui/widgets/search_box.dart';
 import 'package:backyard_botany/ui/widgets/section_title.dart';
@@ -160,6 +161,11 @@ class Home extends StatelessWidget {
           SectionTitle(
             title: 'Plant Types',
           ),
+          Spacers.verticalSpaceSmall(),
+          Container(
+            color: Colors.red,
+          ),
+          Articles()
         ],
       )
     );
